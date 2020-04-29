@@ -27,5 +27,5 @@ it should compile out-of-the-box. You only need to set the following parameters 
 * Your WiFi Credentials 
 * Your MQTT Broker credentials 
 * The Topic(s) for Status messages and measured values
-
+* The Client ID of your Device
 
