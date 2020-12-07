@@ -3,6 +3,7 @@
 #include <WiFi.h>
 #include <WiFiMulti.h>
 #include <PubSubClient.h>
+#include <ArduinoJson.h>
 
 /* WiFi-Data */ 
 const char *ssid = "YourWLANSSID";
@@ -17,6 +18,10 @@ const char *mqttdevice = "YourOwnClientName";  // Please use a unique name here!
 WiFiClient wifiClient; 
 PubSubClient client(wifiClient); 
 
+/* JSON-Document-Size for incoming JSON (object size may be increased for larger JSON files) */ 
+const int capacity = JSON_OBJECT_SIZE(6); 
+
+
 /**
  * This function is called when a MQTT-Message arrives. 
  */
@@ -30,6 +35,25 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length) {   //callba
   }
   Serial.println(""); 
  
+  // Create a JSON document on call stack 
+  StaticJsonDocument<capacity> doc; 
+  String jsonInput = String((char*)payload); 
+
+  // try to deserialize JSON 
+  DeserializationError err = deserializeJson(doc, jsonInput); 
+
+  // if an error occurs, print it out 
+  if (err) {
+    Serial.print(F("deserializeJson() failed with code "));
+    Serial.println(err.c_str());
+    return; 
+  }
+
+  // Read out a name from JSON content (assuming JSON doc: {"SensorType" : "SomeSensorType", "value" : 42}) 
+  const char* name = doc["SensorType"]; 
+  long value = doc["value"]; 
+  Serial.println(name); 
+  Serial.println(value); 
 }
 
 /**
