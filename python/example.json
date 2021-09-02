@@ -1,0 +1,13 @@
+{
+  "dht11": {
+    "name": "DHT11 Sensor",
+    "timestamp": "2020-04-16T09:59:20.844236",
+    "value": 42
+  },
+  "dht22": {
+    "name": "DHT22 Sensor",
+    "timestamp": "2020-04-16T09:59:20.844236",
+    "value": 38,
+    "lastMeasures" : [47, 25, 23, 35, 23, 12]
+  }
+}
