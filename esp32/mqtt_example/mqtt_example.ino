@@ -13,6 +13,7 @@ WiFiMulti wifiMulti;
 
 /* MQTT-Data */ 
 const char *MQTTSERVER = "YourMQTTServerName"; 
+int MQTTPORT = 1883 
 const char *mqttuser = "YourMQTTUsername"; 
 const char *mqttpasswd = "YourMQTTPassword"; 
 const char *mqttdevice = "YourOwnClientName";  // Please use a unique name here!
@@ -79,7 +80,7 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length) {   //callba
  * This function is called from setup() and establishes a MQTT connection.
  */ 
 void initMqtt() {
-  client.setServer(MQTTSERVER, 1883); 
+  client.setServer(MQTTSERVER, MQTTPORT); 
 
   // Set the callback-Function when new messages are received.
   client.setCallback(mqtt_callback); 
