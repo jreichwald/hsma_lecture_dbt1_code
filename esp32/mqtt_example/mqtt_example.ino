@@ -13,13 +13,11 @@ WiFiMulti wifiMulti;
 
 /* MQTT-Data */ 
 const char *MQTTSERVER = "YourMQTTServerName"; 
-int MQTTPORT = 1883 
+int MQTTPORT = 1883;
 const char *mqttuser = "YourMQTTUsername"; 
 const char *mqttpasswd = "YourMQTTPassword"; 
 const char *mqttdevice = "YourOwnClientName";  // Please use a unique name here!
-WiFiClient wifiClient; 
-PubSubClient client(wifiClient); 
-
+const char *outTopic = "MyTestTopic"; 
 WiFiClient wifiClient; 
 PubSubClient client(wifiClient); 
 
