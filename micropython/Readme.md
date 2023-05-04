@@ -6,7 +6,7 @@
 You should have an ESP32-Board running a version of Micropython. You can download 
 a binary distribution [here](https://micropython.org/download/esp32/). 
 The following tutorial was tested against the firmware version 
-[esp32-idf4-v1.14 (Download here)](https://micropython.org/resources/firmware/esp32-idf4-20210202-v1.14.bin)
+[esp32-20230426-v1.20.0 (Download here)](https://micropython.org/resources/firmware/esp32-20230426-v1.20.0.bin)
 
 
 ## Install the ESP Tool 
