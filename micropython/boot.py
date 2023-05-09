@@ -39,7 +39,7 @@ print("Connected, my IP is " + str(station.ifconfig()[0]))
 Connect to MQTT broker
 """
 
-mqttClient = MQTTClient("MyUNIQUEClientID", MQTT_BROKER, 1883, MQTT_USERNAME, MQTT_PW)
+mqttClient = MQTTClient("MyUNIQUEClientID", MQTT_BROKER, 1883, MQTT_USERNAME, MQTT_PW, keepalive=60)
 
 
 
